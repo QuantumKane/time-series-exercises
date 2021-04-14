@@ -1,6 +1,7 @@
 # necessary imports
 
 import pandas as pd
+import numpy as np
 import requests
 import os
 
@@ -69,7 +70,7 @@ def get_store_data():
         df = pd.merge(sales_df, stores_df, left_on='store', right_on='store_id').drop(columns={'store'})
         df = pd.merge(df, items_df, left_on='item', right_on='item_id').drop(columns={'item'})
 
-        # write merged DateTime df with all data to directory for future use
+        # write merged df with all data to directory for future use
         df.to_csv('grocery_df.csv')
         return df
     
