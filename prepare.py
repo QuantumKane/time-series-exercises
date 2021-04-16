@@ -33,34 +33,52 @@ def prep_store_data(df):
     df['day_week'] = df.index.day_name()
     df['sales_total'] = df.sale_amount * df.item_price
     
+    print(df.head())
+    
     return df
 
 
-def prep_german_data(germany):
+def prep_german_data(df):
     '''
     prepare dataset for explore
     '''
     # Convert date to datetime for time series analysis
-    germany.Date = pd.to_datetime(germany.Date)
-    germany = germany[germany.Date >= '2012']
+    opsd_df.Date = pd.to_datetime(opsd_df.Date)
     
-    # Fill null values with 0
-    germany = germany.fillna(0)
+    # Histogram of Consumption
+    opsd_df.Consumption.hist()
+    plt.title('Consumoption')
+    plt.show()
+    
+    # Histogram of Wind
+    opsd_df.Wind.hist()
+    plt.title('Wind')
+    plt.show()
+    
+    # Histogram of Solar
+    opsd_df.Solar.hist()
+    plt.title('Solar')
+    plt.show()
+    
+    # Histogram of Solar
+    opsd_df['Wind+Solar'].hist()
+    plt.title('WindSolar')
+    plt.show()
     
     # Rename column to python ok type
-    germany = germany.rename(columns={'Wind+Solar': 'orig_windsolar'})
+    opsd_df = opsd_df.rename(columns={'Wind+Solar': 'WindSolar'})
     
-    # Add calculated wind + solar column
-    germany['windsolar'] = germany.Wind + germany.Solar
+    # Fill null values with 0
+    opsd_df = opsd_df.fillna(0)
     
     # Set date as index for time series analysis
-    germany = germany.set_index('Date').sort_index()
+    opsd_df = opsd_df.set_index('Date').sort_index()
     
-    # add columns for explore
-    # germany['month'] = germany.index.month
-    # germany['weekday'] = germany.index.day_name()
-    # germany['year'] = germany.index.year
-    # from Corey, make year, month, weekday into categories
-    # germany = (germany.astype({'year': 'category', 'month': 'category', 'weekday': 'category'}))
-    # if I make them categories bar and box plots don't work
-    return germany
+    # add columns to df
+    opsd_df['month'] = opsd_df.index.month
+    opsd_df['weekday'] = opsd_df.index.day_name()
+    opsd_df['year'] = opsd_df.index.year
+    
+    df.head()
+    
+    return df
