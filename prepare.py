@@ -38,46 +38,48 @@ def prep_store_data(df):
     return df
 
 
-def prep_german_data(df):
+def prep_germany_data(df):
     '''
-    prepare dataset for explore
+    Takes in a dataframe, coverts Date to DateTime format and makes it the index, produces histograms 
+    of all variables, renames "Wind+Solar" to the more python-friendly "WindSolar", fills the abundant 
+    nulls/NaNs with 0, and adds the columns 'month' and 'year'. We take a look at the amended dataframe
+    and the dataframe is returned.
     '''
     # Convert date to datetime for time series analysis
-    opsd_df.Date = pd.to_datetime(opsd_df.Date)
+    df.Date = pd.to_datetime(df.Date)
     
     # Histogram of Consumption
-    opsd_df.Consumption.hist()
-    plt.title('Consumoption')
+    df.Consumption.hist()
+    plt.title('Consumption')
     plt.show()
     
     # Histogram of Wind
-    opsd_df.Wind.hist()
+    df.Wind.hist()
     plt.title('Wind')
     plt.show()
     
     # Histogram of Solar
-    opsd_df.Solar.hist()
+    df.Solar.hist()
     plt.title('Solar')
     plt.show()
     
     # Histogram of Solar
-    opsd_df['Wind+Solar'].hist()
+    df['Wind+Solar'].hist()
     plt.title('WindSolar')
     plt.show()
     
     # Rename column to python ok type
-    opsd_df = opsd_df.rename(columns={'Wind+Solar': 'WindSolar'})
+    df = df.rename(columns={'Wind+Solar': 'WindSolar'})
     
     # Fill null values with 0
-    opsd_df = opsd_df.fillna(0)
+    df = df.fillna(0)
     
     # Set date as index for time series analysis
-    opsd_df = opsd_df.set_index('Date').sort_index()
+    df = df.set_index('Date').sort_index()
     
     # add columns to df
-    opsd_df['month'] = opsd_df.index.month
-    opsd_df['weekday'] = opsd_df.index.day_name()
-    opsd_df['year'] = opsd_df.index.year
+    df['month'] = df.index.month
+    df['year'] = df.index.year
     
     df.head()
     
