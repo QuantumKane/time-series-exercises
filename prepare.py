@@ -81,6 +81,6 @@ def prep_germany_data(df):
     df['month'] = df.index.month
     df['year'] = df.index.year
     
-    df.head()
+    print(df.head())
     
     return df
