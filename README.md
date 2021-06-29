@@ -6,3 +6,6 @@ This is my repo for Codeup's Time Series module.
 
 ## Smoothing
 - Inherent in the collection of data taken over time is some form of random variation. There exist methods for reducing of canceling the effect due to random variation. An often-used technique in industry is "smoothing". This technique, when properly applied, reveals more clearly the underlying trend, seasonal and cyclic components. - [Smoothing](https://www.itl.nist.gov/div898/handbook/pmc/section4/pmc42.htm)
+
+## Time Series Analysis
+- Time series analysis comprises methods for analyzing time series data in order to extract meaningful statistics and other characteristics of the data. Time series forecasting is the use of a model to predict future values based on previously observed values. Interrupted time series analysis is used to detect changes in the evolution of a time series from before to after some intervention which may affect the underlying variable.
