@@ -6,10 +6,10 @@ This is my repo for Codeup's Time Series module.
 
 ## What Are the Components of Time Series?
 - These four components are:
-- - Secular trend, which describe the movement along the term;
-- - Seasonal variations, which represent seasonal changes;
-- - Cyclical fluctuations, which correspond to periodical but not seasonal variations;
-- - Irregular variations, which are other nonrandom sources of variations of series. - [Components](https://link.springer.com/referenceworkentry/10.1007%2F978-0-387-32833-1_401)
+- Secular trend, which describe the movement along the term;
+- Seasonal variations, which represent seasonal changes;
+- Cyclical fluctuations, which correspond to periodical but not seasonal variations;
+- Irregular variations, which are other nonrandom sources of variations of series. - [Components](https://link.springer.com/referenceworkentry/10.1007%2F978-0-387-32833-1_401)
 
 ## Smoothing
 - Inherent in the collection of data taken over time is some form of random variation. There exist methods for reducing of canceling the effect due to random variation. An often-used technique in industry is "smoothing". This technique, when properly applied, reveals more clearly the underlying trend, seasonal and cyclic components. - [Smoothing](https://www.itl.nist.gov/div898/handbook/pmc/section4/pmc42.htm)
